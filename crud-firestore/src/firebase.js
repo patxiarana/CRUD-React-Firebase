@@ -1,6 +1,6 @@
 // Your web app's Firebase configuration
 import firebase from 'firebase/app'
-
+import 'firebase/firestore'
 const firebaseConfig = {
 	apiKey: 'AIzaSyANjvSnUCLo_kuajv6PO2IiUB8pW0VxIKA',
 	authDomain: 'fb-crud-746ac.firebaseapp.com',
@@ -11,4 +11,5 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const fb = firebase.initializeApp(firebaseConfig);
+export const db = fb.rirestore() ;
