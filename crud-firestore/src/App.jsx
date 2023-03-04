@@ -1,7 +1,7 @@
 import './App.css';
-
+import { Links } from './components/Links';
 function App() {
-	return <h1>Iniciando proyecto</h1>;
+	return <Links />;
 }
 
 export default App;
