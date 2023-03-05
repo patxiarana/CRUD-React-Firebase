@@ -2,5 +2,13 @@
 import React from 'react';
 
 export const LinkForm = () => {
-	return <h1>Link form</h1>;
+	return(
+    <form className='card card-body'>
+   
+
+
+
+
+    </form>
+    )
 };
