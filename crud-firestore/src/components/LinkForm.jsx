@@ -15,6 +15,12 @@ export const LinkForm = () => {
 					name='url'
 				/>
 			</div>
+			<div className='form-group input-group'>
+				<div className='input-group-text bg-light'>
+					<i className='material-icons'>create</i>
+				</div>
+				<input type='text' className='form-control' name='name' placeholder='Website name' />
+			</div>
 		</form>
 	);
 };
