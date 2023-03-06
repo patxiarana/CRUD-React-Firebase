@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React , {useEffect}from 'react';
 import { LinkForm } from './LinkForm';
 import { db } from '../firebase';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc,getDocs } from "firebase/firestore";
 
 
 export const Links = () => {
@@ -15,6 +15,22 @@ export const Links = () => {
     console.error("Error adding document: ", err);
   }
 	};
+ 
+  const getLinks = async() => {
+    try{
+      const querySnapshot = await getDocs(collection(db, "links"));
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+    });
+    }catch(err) {
+      console.error("Error adding document: ", err);
+    }
+  }
+
+
+  useEffect( () => {
+    getLinks()
+  },[])
 
 	return (
 		<div className=''>
