@@ -20,7 +20,7 @@ export const Links = () => {
     try{
       const querySnapshot = await getDocs(collection(db, "links"));
     querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
+      console.log(doc.data());
     });
     }catch(err) {
       console.error("Error adding document: ", err);
