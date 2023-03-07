@@ -2,7 +2,7 @@
 import React , {useEffect}from 'react';
 import { LinkForm } from './LinkForm';
 import { db } from '../firebase';
-import { collection, addDoc,getDocs } from "firebase/firestore";
+import { collection, addDoc,query, onSnapshot } from "firebase/firestore";
 
 
 export const Links = () => {
@@ -18,10 +18,16 @@ export const Links = () => {
  
   const getLinks = async() => {
     try{
-      const querySnapshot = await getDocs(collection(db, "links"));
-    querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-    });
+      
+const q = query(collection(db, "links"));
+  onSnapshot(q, (querySnapshot) => {
+  const Website = [];
+  querySnapshot.forEach((doc) => {
+    Website.push(doc.data());
+  });
+  console.log("url websites ", Website);
+});
+
     }catch(err) {
       console.error("Error adding document: ", err);
     }
